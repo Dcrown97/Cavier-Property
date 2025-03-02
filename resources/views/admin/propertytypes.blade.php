@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="col">
-                            <img src="{{ isset($testimonial->photo) ? asset('properttypes' . '/' . $testimonial->photo) : '' }}"
+                            <img src="{{ isset($testimonial->photo) ? asset('storage/properttypes' . '/' . $testimonial->photo) : '' }}"
                                 class="img-responsive" id="image" alt=""
                                 style="max-height: 150px; max-width:50%">
                         </div>
@@ -60,8 +60,8 @@
             <div class="row col-lg-12">
                 @forelse ($propertyTypes as $propertyType)
                     <div class="card m-2" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset('properttypes' . '/' . $propertyType->image) ?? '' }}"
-                            alt="">
+                        <img class="card-img-top"
+                            src="{{ asset('storage/properttypes' . '/' . $propertyType->image) ?? '' }}" alt="">
                         <div class="card-body">
                             <p class="card-text"><b>Name:</b>
                                 <small>{{ Str::limit($propertyType->name, 50) ?? '-' }}</small>

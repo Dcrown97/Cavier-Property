@@ -79,7 +79,7 @@
                         <a class="cat-item d-block bg-light text-center rounded p-3" href="">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
-                                    <img class="img-fluid" src="{{ asset('properttypes' . '/' . $propertyType->image) ?? '' }}"
+                                    <img class="img-fluid" src="{{ asset('storage/properttypes' . '/' . $propertyType->image) ?? '' }}"
                                         alt="Icon">
                                 </div>
                                 <h6>{{ $propertyType->name }}</h6>

@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="col">
-                            <img src="{{ isset($propertyAgent->photo) ? asset('storage' . '/' . $propertyAgent->photo) : '' }}"
+                            <img src="{{ isset($propertyAgent->photo) ? asset('storage/propertyagents/' . $propertyAgent->photo) : '' }}"
                                 class="img-responsive" id="image" alt=""
                                 style="max-height: 150px; max-width:50%">
                         </div>

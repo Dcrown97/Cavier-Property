@@ -140,7 +140,7 @@
                                 <div class="property-item rounded overflow-hidden">
                                     <div class="position-relative overflow-hidden">
                                         <a href="/property_details/{{ $property->id }}"><img class="img-fluid"
-                                                src="{{ $firstImage ? asset('properties/' . $firstImage) : '' }}"
+                                                src="{{ $firstImage ? asset('storage/properties/' . $firstImage) : '' }}"
                                                 alt=""></a>
                                         <div
                                             class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
@@ -215,7 +215,7 @@
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
                                     <img class="img-fluid"
-                                        src="{{ asset('properttypes' . '/' . $propertyType->image) ?? '' }}"
+                                        src="{{ asset('storage/properttypes' . '/' . $propertyType->image) ?? '' }}"
                                         alt="Icon">
                                 </div>
                                 <h6>{{ $propertyType->name }}</h6>
@@ -357,8 +357,8 @@
                         <div class="team-item rounded overflow-hidden d-flex flex-column" style="height: 100%;">
                             <div class="position-relative">
                                 <img class="img-fluid"
-                                    src="{{ asset('propertagents' . '/' . $propertyAgent->image) ?? '' }}" alt=""
-                                    style="width: 100%; height: 300px; object-fit: cover;">
+                                    src="{{ asset('storage/propertyagents' . '/' . $propertyAgent->image) ?? '' }}"
+                                    alt="" style="width: 100%; height: 300px; object-fit: cover;">
                                 <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                     <a class="btn btn-square mx-1" title="{{ $propertyAgent->facebook_link }}"
                                         href="tel:{{ $propertyAgent->facebook_link }}"><i
@@ -399,7 +399,7 @@
                             <p>{{ $testimonial->content }}</p>
                             <div class="d-flex align-items-center">
                                 {{-- <img class="img-fluid flex-shrink-0 rounded"
-                                    src="{{ asset('testimonials' . '/' . $testimonial->image) ?? '' }}"
+                                    src="{{ asset('storage/testimonials' . '/' . $testimonial->image) ?? '' }}"
                                     style="width: 45px; height: 45px;"> --}}
                                 <div class="ps-3">
                                     <h6 class="fw-bold mb-1">{{ $testimonial->client_name }}</h6>

@@ -98,10 +98,10 @@
                             <div class="col-6">
                                 @if ($index == 3 && $totalImages > 4)
                                     <!-- Special case for the 4th image with the "See all photos" overlay -->
-                                    <a href="{{ asset('properties/' . $image) }}" data-fancybox="gallery"
+                                    <a href="{{ asset('storage/properties/' . $image) }}" data-fancybox="gallery"
                                         data-caption="Property Image {{ $index + 1 }}">
                                         <div class="img-container">
-                                            <img src="{{ asset('properties/' . $image) }}"
+                                            <img src="{{ asset('storage/properties/' . $image) }}"
                                                 alt="Property Image {{ $index + 1 }}"
                                                 class="img-fluid zoom-hover rounded uniform-img">
                                             <div class="see-all-text">See all photos</div>
@@ -109,10 +109,10 @@
                                     </a>
                                 @else
                                     <!-- Regular images (1st to 3rd) -->
-                                    <a href="{{ asset('properties/' . $image) }}" data-fancybox="gallery"
+                                    <a href="{{ asset('storage/properties/' . $image) }}" data-fancybox="gallery"
                                         data-caption="Property Image {{ $index + 1 }}">
                                         <div class="img-container">
-                                            <img src="{{ asset('properties/' . $image) }}"
+                                            <img src="{{ asset('storage/properties/' . $image) }}"
                                                 alt="Property Image {{ $index + 1 }}"
                                                 class="img-fluid zoom-hover rounded uniform-img">
                                         </div>
@@ -123,10 +123,10 @@
 
                         <!-- Add all the remaining images to the Fancybox gallery, but don't display them on the page -->
                         @foreach (array_slice($images, 4) as $index => $image)
-                            <a href="{{ asset('properties/' . $image) }}" data-fancybox="gallery"
+                            <a href="{{ asset('storage/properties/' . $image) }}" data-fancybox="gallery"
                                 data-caption="Property Image {{ $index + 5 }}" style="display: none;">
-                                <img src="{{ asset('properties/' . $image) }}" alt="Property Image {{ $index + 5 }}"
-                                    class="img-fluid rounded">
+                                <img src="{{ asset('storage/properties/' . $image) }}"
+                                    alt="Property Image {{ $index + 5 }}" class="img-fluid rounded">
                             </a>
                         @endforeach
                     </div>

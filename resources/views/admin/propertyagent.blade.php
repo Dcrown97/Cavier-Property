@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="col">
-                            <img src="{{ isset($agent->image) ? asset('propertagents' . '/' . $agent->image) : '' }}"
+                            <img src="{{ isset($agent->image) ? asset('storage/propertyagents/' . $agent->image) : '' }}"
                                 class="img-responsive" id="image" alt=""
                                 style="max-height: 150px; max-width:50%">
                         </div>
@@ -75,7 +75,7 @@
             <div class="row col-lg-12">
                 @forelse ($propertyAgents as $agent)
                     <div class="card m-2" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset('propertagents' . '/' . $agent->image) ?? '' }}" alt="">
+                        <img class="card-img-top" src="{{ asset('storage/propertyagents/' . $agent->image) ?? '' }}" alt="">
                         <div class="card-body">
                             <p class="card-text"><b>Name:</b> <small>{{ Str::limit($agent->name, 50) ?? '-' }}</small>
                             </p>
