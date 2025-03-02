@@ -181,7 +181,7 @@ class AdminController extends Controller
                     // Resize the image using Intervention Image
                     $resizedImage = Image::make($image)->resize(500, null, function ($constraint) {
                         $constraint->aspectRatio();
-                        $constraint->upsize(); // Prevents upsizing
+                        $constraint->upsize();
                     })->encode();
 
                     // Define the path where the image will be saved
