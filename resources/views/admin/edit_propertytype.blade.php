@@ -32,8 +32,9 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Image</label>
-                                <input id="picture" type="file" onchange="preview()" name="image"
-                                    value="{{ $propertyType->image }}" class="form-control">
+                                <input id="picture" type="file"
+                                    onchange="this.files[0].size > 2097152 ? (alert('File size must be less than 2MB!'), this.value='') : preview();"
+                                    name="image" value="{{ $propertyType->image }}" class="form-control">
                             </div>
                         </div>
 

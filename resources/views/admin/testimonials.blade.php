@@ -38,8 +38,9 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Image</label>
-                                <input id="picture" type="file" onchange="preview()" name="image"
-                                    class="form-control">
+                                <input id="picture" type="file"
+                                    onchange="this.files[0].size > 2097152 ? (alert('File size must be less than 2MB!'), this.value='') : preview();"
+                                    name="image" class="form-control">
                             </div>
                         </div>
 
@@ -79,7 +80,8 @@
                                         <i class="fa fa-edit"></i> Edit</a>
 
                                     <a class="btn btn-danger mx-2 btn-sm"
-                                        href="/admin/delete_testimonial?id={{ base64_encode($testimonial->id) ?? '' }}" onclick="return confirm('Are you sure you want to delete this testimonial?')">
+                                        href="/admin/delete_testimonial?id={{ base64_encode($testimonial->id) ?? '' }}"
+                                        onclick="return confirm('Are you sure you want to delete this testimonial?')">
                                         <i class="fa fa-trash"></i> Delete</a>
                                 </div>
                             </div>
