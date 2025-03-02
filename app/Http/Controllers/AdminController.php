@@ -186,7 +186,6 @@ class AdminController extends Controller
 
                     // Define the path where the image will be saved
                     $destinationPath = public_path('/properttypes');
-                    // $destinationPath = storage_path('app/public/properttypes');
 
                     // Create the folder if it doesn't exist
                     if (!file_exists($destinationPath)) {
@@ -195,7 +194,6 @@ class AdminController extends Controller
 
                     // Save the resized image
                     file_put_contents($destinationPath . '/' . $filename, $resizedImage);
-                    // Storage::disk('public')->put("properttypes/{$filename}", $resizedImage);
 
                     // Delete the old image if it exists and is different from the new one
                     if ($oldImage && file_exists($destinationPath . '/' . $oldImage)) {
