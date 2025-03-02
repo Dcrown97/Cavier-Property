@@ -69,15 +69,15 @@
                         <div class="team-item rounded overflow-hidden d-flex flex-column" style="height: 100%;">
                             <div class="position-relative">
                                 <img class="img-fluid"
-                                    src="{{ asset('propertagents' . '/' . $propertyAgent->image) ?? '' }}" alt=""
-                                    style="width: 100%; height: 300px; object-fit: cover;">
+                                    src="{{ asset('storage/propertyagents' . '/' . $propertyAgent->image) ?? '' }}"
+                                    alt="" style="width: 100%; height: 300px; object-fit: cover;">
                                 <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" title="{{ $propertyAgent->facebook_link }}" href="tel:{{ $propertyAgent->facebook_link }}"><i
-                                            class="fab fa-whatsapp"></i></a>
-                                    <a class="btn btn-square mx-1" title="{{ $propertyAgent->twitter_link }}" href="mailto:{{ $propertyAgent->twitter_link }}"><i
-                                            class="fa fa-envelope"></i></a>
-                                    <a class="btn btn-square mx-1" title="{{ $propertyAgent->instagram_link }}" href="tel:{{ $propertyAgent->instagram_link }}"><i
-                                            class="fa fa-phone"></i></a>
+                                    <a class="btn btn-square mx-1" title="{{ $propertyAgent->facebook_link }}"
+                                        href="tel:{{ $propertyAgent->facebook_link }}"><i class="fab fa-whatsapp"></i></a>
+                                    <a class="btn btn-square mx-1" title="{{ $propertyAgent->twitter_link }}"
+                                        href="mailto:{{ $propertyAgent->twitter_link }}"><i class="fa fa-envelope"></i></a>
+                                    <a class="btn btn-square mx-1" title="{{ $propertyAgent->instagram_link }}"
+                                        href="tel:{{ $propertyAgent->instagram_link }}"><i class="fa fa-phone"></i></a>
                                 </div>
                             </div>
                             <div class="text-center p-4 mt-auto">

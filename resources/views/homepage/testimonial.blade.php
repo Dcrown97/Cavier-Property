@@ -70,7 +70,7 @@
                             <p>{{ $testimonial->content }}</p>
                             <div class="d-flex align-items-center">
                                 {{-- <img class="img-fluid flex-shrink-0 rounded"
-                                    src="{{ asset('testimonials' . '/' . $testimonial->image) ?? '' }}"
+                                    src="{{ asset('storage/testimonials' . '/' . $testimonial->image) ?? '' }}"
                                     style="width: 45px; height: 45px;"> --}}
                                 <div class="ps-3">
                                     <h6 class="fw-bold mb-1">{{ $testimonial->client_name }}</h6>

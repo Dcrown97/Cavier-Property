@@ -179,7 +179,7 @@
                                     <!-- Existing Images -->
                                     @foreach (json_decode($property->image) as $key => $image)
                                         <div class="image-preview" id="image-row-{{ $key }}">
-                                            <img src="{{ asset('properties/' . $image) }}">
+                                            <img src="{{ asset('storage/properties/' . $image) }}">
                                             <button type="button" class="remove-btn"
                                                 onclick="removeImage({{ $key }}, '{{ $image }}')">×</button>
                                             <input type="hidden" name="existing_images[]" value="{{ $image }}">

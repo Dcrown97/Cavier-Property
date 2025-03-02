@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="col">
-                            <img src="{{ isset($testimonial->photo) ? asset('storage' . '/' . $testimonial->photo) : '' }}"
+                            <img src="{{ isset($testimonial->photo) ? asset('storage/testimonials/' . $testimonial->photo) : '' }}"
                                 class="img-responsive" id="image" alt=""
                                 style="max-height: 150px; max-width:50%">
                         </div>

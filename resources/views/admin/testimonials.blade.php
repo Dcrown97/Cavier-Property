@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="col">
-                            <img src="{{ isset($testimonial->photo) ? asset('testimonials' . '/' . $testimonial->photo) : '' }}"
+                            <img src="{{ isset($testimonial->photo) ? asset('storage/testimonials/' . $testimonial->photo) : '' }}"
                                 class="img-responsive" id="image" alt=""
                                 style="max-height: 150px; max-width:50%">
                         </div>
@@ -60,7 +60,7 @@
             <div class="row col-lg-12">
                 @forelse ($testimonials as $testimonial)
                     <div class="card m-2" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset('testimonials' . '/' . $testimonial->image) ?? '' }}"
+                        <img class="card-img-top" src="{{ asset('storage/testimonials/' . $testimonial->image) ?? '' }}"
                             alt="">
                         <div class="card-body">
                             <p class="card-text"><b>Client Name:</b>

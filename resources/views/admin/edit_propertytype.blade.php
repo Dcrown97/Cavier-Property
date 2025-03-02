@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="col">
-                            <img src="{{ isset($propertyType->photo) ? asset('storage' . '/' . $propertyType->photo) : '' }}"
+                            <img src="{{ isset($propertyType->photo) ? asset('storage/properttypes/' . $propertyType->photo) : '' }}"
                                 class="img-responsive" id="image" alt=""
                                 style="max-height: 150px; max-width:50%">
                         </div>

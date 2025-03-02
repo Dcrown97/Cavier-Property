@@ -180,7 +180,7 @@
                             $images = json_decode($property->image);
                             $firstImage = $images[0] ?? null; // Get the first image if available
                         @endphp
-                        <img class="card-img-top" src="{{ $firstImage ? asset('properties/' . $firstImage) : '' }}"
+                        <img class="card-img-top" src="{{ $firstImage ? asset('storage/properties/' . $firstImage) : '' }}"
                             alt="">
                         {{-- <img class="card-img-top" src="{{ asset('properties' . '/' . $property->image) ?? '' }}" alt=""> --}}
                         <div class="card-body">

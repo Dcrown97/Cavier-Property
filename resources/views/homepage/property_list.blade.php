@@ -136,7 +136,7 @@
                                 <div class="property-item rounded overflow-hidden">
                                     <div class="position-relative overflow-hidden">
                                         <a href="/property_details/{{ $property->id }}"><img class="img-fluid"
-                                                src="{{ $firstImage ? asset('properties/' . $firstImage) : '' }}"
+                                                src="{{ $firstImage ? asset('storage/properties/' . $firstImage) : '' }}"
                                                 alt=""></a>
                                         <div
                                             class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">

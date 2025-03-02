@@ -185,7 +185,8 @@ class AdminController extends Controller
                     })->encode();
 
                     // Define the path where the image will be saved
-                    $destinationPath = public_path('/properttypes');
+                    // $destinationPath = public_path('/properttypes');
+                    $destinationPath = storage_path('app/public/properttypes');
 
                     // Create the folder if it doesn't exist
                     if (!file_exists($destinationPath)) {
@@ -193,11 +194,11 @@ class AdminController extends Controller
                     }
 
                     // Save the resized image
-                    file_put_contents($destinationPath . '/' . $filename, $resizedImage);
+                    // file_put_contents($destinationPath . '/' . $filename, $resizedImage);
+                    Storage::disk('public')->put("properttypes/{$filename}", $resizedImage);
 
-                    // Delete the old image if it exists and is different from the new one
-                    if ($oldImage && file_exists($destinationPath . '/' . $oldImage)) {
-                        unlink($destinationPath . '/' . $oldImage);
+                    if ($oldImage && Storage::disk('public')->exists("properttypes/{$oldImage}")) {
+                        Storage::disk('public')->delete("properttypes/{$oldImage}");
                     }
                 }
 
@@ -238,16 +239,17 @@ class AdminController extends Controller
                     return back()->with(['error' => 'Property Type not found.']);
                 }
 
-                // Get the image filename from the property
-                $imagePath = public_path('properttypes/' . $propertyType->image);
+                // Get the image filename from the database
+                $imagePath = "properttypes/{$propertyType->image}";
 
                 // Check if the image exists and delete it
-                if (file_exists($imagePath)) {
-                    unlink($imagePath); // Delete the image from the filesystem
+                if (Storage::disk('public')->exists($imagePath)) {
+                    Storage::disk('public')->delete($imagePath);
                 }
 
                 // Delete the record
                 $propertyType->delete();
+
                 return back()->withSuccess('Successful');
             } catch (\Exception $e) {
                 return back()->withErrors('Something went wrong');
@@ -272,9 +274,11 @@ class AdminController extends Controller
                 $removedImages = json_decode($request->removed_images, true);
                 if ($removedImages) {
                     foreach ($removedImages as $removedImage) {
-                        $imagePath = public_path('/properties/' . $removedImage);
-                        if (file_exists($imagePath)) {
-                            unlink($imagePath); // Delete the file from the server
+                        $imagePath = "properties/{$removedImage}"; // Relative path in storage
+
+                        // Check if the file exists in storage and delete it
+                        if (Storage::disk('public')->exists($imagePath)) {
+                            Storage::disk('public')->delete($imagePath);
                         }
                         // Remove the deleted image from the old images array
                         $oldImages = array_diff($oldImages, [$removedImage]);
@@ -300,12 +304,15 @@ class AdminController extends Controller
                             // Generate a unique filename
                             $filename = time() . '_image_' . $key . '.' . $extension;
 
-                            // Save the file
-                            $destinationPath = public_path('/properties');
-                            if (!file_exists($destinationPath)) {
-                                mkdir($destinationPath, 0755, true);
-                            }
-                            file_put_contents($destinationPath . '/' . $filename, $decodedData);
+                            // // Save the file
+                            // $destinationPath = public_path('/properties');
+                            // if (!file_exists($destinationPath)) {
+                            //     mkdir($destinationPath, 0755, true);
+                            // }
+
+                            // Save the file using Laravel storage
+                            // file_put_contents($destinationPath . '/' . $filename, $decodedData);
+                            Storage::disk('public')->put("properties/{$filename}", $decodedData);
 
                             // Add the saved image to the array
                             $savedImages[] = $filename;
@@ -371,9 +378,9 @@ class AdminController extends Controller
                 foreach ($images as $image) {
                     $imagePath = public_path('properties/' . $image);
 
-                    // Check if the image exists and delete it
-                    if (file_exists($imagePath)) {
-                        unlink($imagePath); // Delete the image from the filesystem
+                    // Check if the image exists in storage and delete it
+                    if (Storage::disk('public')->exists($imagePath)) {
+                        Storage::disk('public')->delete($imagePath);
                     }
                 }
 
@@ -412,7 +419,8 @@ class AdminController extends Controller
                     })->encode();
 
                     // Define the path where the image will be saved
-                    $destinationPath = public_path('/propertagents');
+                    // $destinationPath = public_path('/propertyagents');
+                    $destinationPath = storage_path('app/public/propertyagents');
 
                     // Create the folder if it doesn't exist
                     if (!file_exists($destinationPath)) {
@@ -420,11 +428,18 @@ class AdminController extends Controller
                     }
 
                     // Save the resized image
-                    file_put_contents($destinationPath . '/' . $filename, $resizedImage);
+                    // file_put_contents($destinationPath . '/' . $filename, $resizedImage);
+                    // // Delete the old image if it exists and is different from the new one
+                    // if ($oldImage && file_exists($destinationPath . '/' . $oldImage)) {
+                    //     unlink($destinationPath . '/' . $oldImage);
+                    // }
 
-                    // Delete the old image if it exists and is different from the new one
-                    if ($oldImage && file_exists($destinationPath . '/' . $oldImage)) {
-                        unlink($destinationPath . '/' . $oldImage);
+                    Storage::disk('public')->put(
+                        "propertyagents/{$filename}",
+                        $resizedImage
+                    );
+                    if ($oldImage && Storage::disk('public')->exists("propertyagents/{$oldImage}")) {
+                        Storage::disk('public')->delete("propertyagents/{$oldImage}");
                     }
                 }
 
@@ -469,12 +484,12 @@ class AdminController extends Controller
                     return back()->with(['error' => 'Property agent not found.']);
                 }
 
-                // Get the image filename from the property
-                $imagePath = public_path('propertagents/' . $propertyAgent->image);
+                // Get the image filename from the database
+                $imagePath = "propertyagents/{$propertyAgent->image}";
 
                 // Check if the image exists and delete it
-                if (file_exists($imagePath)) {
-                    unlink($imagePath); // Delete the image from the filesystem
+                if (Storage::disk('public')->exists($imagePath)) {
+                    Storage::disk('public')->delete($imagePath);
                 }
 
                 // Delete the record
@@ -510,7 +525,8 @@ class AdminController extends Controller
                     })->encode();
 
                     // Define the path where the image will be saved
-                    $destinationPath = public_path('/testimonials');
+                    // $destinationPath = public_path('/testimonials');
+                    $destinationPath = storage_path('app/public/testimonials');
 
                     // Create the folder if it doesn't exist
                     if (!file_exists($destinationPath)) {
@@ -518,11 +534,18 @@ class AdminController extends Controller
                     }
 
                     // Save the new image
-                    file_put_contents($destinationPath . '/' . $filename, $resizedImage);
+                    // file_put_contents($destinationPath . '/' . $filename, $resizedImage);
+                    // // Delete the old image if it exists and is different from the new one
+                    // if ($oldImage && file_exists($destinationPath . '/' . $oldImage)) {
+                    //     unlink($destinationPath . '/' . $oldImage);
+                    // }
 
-                    // Delete the old image if it exists and is different from the new one
-                    if ($oldImage && file_exists($destinationPath . '/' . $oldImage)) {
-                        unlink($destinationPath . '/' . $oldImage);
+                    Storage::disk('public')->put(
+                        "testimonials/{$filename}",
+                        $resizedImage
+                    );
+                    if ($oldImage && Storage::disk('public')->exists("testimonials/{$oldImage}")) {
+                        Storage::disk('public')->delete("testimonials/{$oldImage}");
                     }
                 }
 
@@ -564,12 +587,12 @@ class AdminController extends Controller
                     return back()->with(['error' => 'Testimonial not found.']);
                 }
 
-                // Get the image filename from the property
-                $imagePath = public_path('testimonials/' . $testimonials->image);
+                // Get the image filename from the database
+                $imagePath = "testimonials/{$testimonials->image}";
 
                 // Check if the image exists and delete it
-                if (file_exists($imagePath)) {
-                    unlink($imagePath); // Delete the image from the filesystem
+                if (Storage::disk('public')->exists($imagePath)) {
+                    Storage::disk('public')->delete($imagePath);
                 }
 
                 // Delete the record
