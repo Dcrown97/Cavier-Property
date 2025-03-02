@@ -13,15 +13,15 @@
 
     <!-- Base CSS -->
 
-    <link rel="stylesheet" href="/assets2/css/basestyle/style.css">
+    <link rel="stylesheet" href="{{ asset('assets2/css/basestyle/style.css') }}">
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Fontawesome Icons -->
-    <link href="/assets2/css/fontawesome/fontawesome-all.min.css" rel="stylesheet">
+    <link href="{{ asset('assets2/css/fontawesome/fontawesome-all.min.css') }}" rel="stylesheet">
 
-    <link href="/assets2/css/pages/login.css" rel="stylesheet">
+    <link href="{{ asset('assets2/css/pages/login.css') }}" rel="stylesheet">
 
     <title>Cavier - Properties</title>
 </head>
@@ -102,10 +102,10 @@
     </div>
 
 
-    <script src="assets2/js/jquery-3.3.1.slim.min.html"></script>
-    <script src="assets2/js/popper.min.html"></script>
-    <script src="assets2/js/bootstrap/bootstrap.min.js"></script>
-    <script src="assets2/js/custom.js"></script>
+    <script src="{{ asset('assets2/js/jquery-3.3.1.slim.min.js') }}"></script>
+    <script src="{{ asset('assets2/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets2/js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets2/js/custom.js') }}"></script>
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
