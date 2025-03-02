@@ -23,8 +23,8 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Position</label>
-                                <input type="text" name="position" value="{{ $propertyAgent->position ?? '' }}" placeholder="Enter agents position"
-                                    class="form-control" required>
+                                <input type="text" name="position" value="{{ $propertyAgent->position ?? '' }}"
+                                    placeholder="Enter agents position" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,8 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Phone Number</label>
-                                <input type="text" name="instagram_link" value="{{ $propertyAgent->instagram_link ?? '' }}"
+                                <input type="text" name="instagram_link"
+                                    value="{{ $propertyAgent->instagram_link ?? '' }}"
                                     placeholder="Enter agents instagram link" class="form-control" required>
                             </div>
                         </div>
@@ -57,8 +58,9 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Image</label>
-                                <input id="picture" type="file" onchange="preview()" name="image"
-                                    value="{{ $propertyAgent->image }}" class="form-control">
+                                <input id="picture" type="file"
+                                    onchange="this.files[0].size > 2097152 ? (alert('File size must be less than 2MB!'), this.value='') : preview();"
+                                    name="image" value="{{ $propertyAgent->image }}" class="form-control">
                             </div>
                         </div>
 

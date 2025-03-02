@@ -159,7 +159,7 @@
                             <div class="form-group">
                                 <label for="">Images</label>
                                 <input type="file" id="image-input" class="form-control" name="images[]"
-                                    accept="image/*" multiple onchange="previewImages(event)">
+                                    accept="image/*" multiple onchange="Array.from(this.files).some(file => file.size > 2097152) ? (alert('Each file must be less than 2MB!'), this.value='') : previewImages(event);">
                                 <div id="preview-container" class="mt-2"></div>
                             </div>
                         </div>
@@ -221,6 +221,13 @@
             const previewContainer = document.getElementById("preview-container");
 
             Array.from(files).forEach((file, index) => {
+                
+                // Validate file size (2MB = 2097152 bytes)
+                if (file.size > 2097152) {
+                    alert(`"${file.name}" is too large! Each file must be less than 2MB.`);
+                    return; // Skip this file
+                }
+                
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     const imageId = `image-${selectedImages.length}`;

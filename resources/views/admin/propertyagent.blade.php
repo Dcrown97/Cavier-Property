@@ -53,8 +53,9 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Image</label>
-                                <input id="picture" type="file" onchange="preview()" name="image"
-                                    class="form-control">
+                                <input id="picture" type="file"
+                                    onchange="this.files[0].size > 2097152 ? (alert('File size must be less than 2MB!'), this.value='') : preview();"
+                                    name="image" class="form-control">
                             </div>
                         </div>
 
@@ -75,7 +76,8 @@
             <div class="row col-lg-12">
                 @forelse ($propertyAgents as $agent)
                     <div class="card m-2" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset('storage/propertyagents/' . $agent->image) ?? '' }}" alt="">
+                        <img class="card-img-top" src="{{ asset('storage/propertyagents/' . $agent->image) ?? '' }}"
+                            alt="">
                         <div class="card-body">
                             <p class="card-text"><b>Name:</b> <small>{{ Str::limit($agent->name, 50) ?? '-' }}</small>
                             </p>
@@ -89,7 +91,8 @@
                                         <i class="fa fa-edit"></i> Edit</a>
 
                                     <a class="btn btn-danger mx-2 btn-sm"
-                                        href="/admin/delete/property/agent?id={{ base64_encode($agent->id) ?? '' }}" onclick="return confirm('Are you sure you want to delete this property agent?')">
+                                        href="/admin/delete/property/agent?id={{ base64_encode($agent->id) ?? '' }}"
+                                        onclick="return confirm('Are you sure you want to delete this property agent?')">
                                         <i class="fa fa-trash"></i> Delete</a>
                                 </div>
                             </div>

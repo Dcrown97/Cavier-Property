@@ -173,7 +173,7 @@
                                 <!-- Add More Images -->
                                 <div class="mt-2 mb-2">
                                     <input type="file" id="image-input" name="images[]" class="form-control" multiple
-                                        accept="image/*" onchange="handleNewImages(event)">
+                                        accept="image/*" onchange="Array.from(this.files).some(file => file.size > 2097152) ? (alert('Each file must be less than 2MB!'), this.value='') : handleNewImages(event);">
                                 </div>
                                 <div id="preview-container">
                                     <!-- Existing Images -->
@@ -220,6 +220,13 @@
 
             for (let i = 0; i < files.length; i++) {
                 const file = files[i];
+                
+                // Validate file size (2MB = 2097152 bytes)
+                if (file.size > 2097152) {
+                    alert(`"${file.name}" is too large! Each file must be less than 2MB.`);
+                    continue; // Skip this file
+                }
+                
                 const reader = new FileReader();
 
                 reader.onload = function(e) {
