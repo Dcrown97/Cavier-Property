@@ -127,7 +127,7 @@
                         <div class="team-item rounded overflow-hidden d-flex flex-column" style="height: 100%;">
                             <div class="position-relative">
                                 <img class="img-fluid"
-                                    src="{{ asset('propertagents' . '/' . $propertyAgent->image) ?? '' }}" alt=""
+                                    src="{{ asset('storage/propertyagents' . '/' . $propertyAgent->image) ?? '' }}" alt=""
                                     style="width: 100%; height: 300px; object-fit: cover;">
                                 <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                     <a class="btn btn-square mx-1" title="{{ $propertyAgent->facebook_link }}"
