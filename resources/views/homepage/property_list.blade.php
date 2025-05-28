@@ -128,7 +128,7 @@
                     <div class="row g-4">
                         @forelse ($properties as $property)
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                 @php
+                                @php
                                     // Decode the JSON-encoded images to get an array of filenames
                                     $images = json_decode($property->image);
                                     $firstImage = $images[0] ?? null; // Get the first image if available
@@ -210,7 +210,7 @@
                                 <p>Our exclusive marketing strategies will position your home to reach virtually every buyer
                                     through robust syndication</p>
                             </div>
-                            <a href="tel:+2348177245589" class="btn btn-primary py-3 px-4 me-2">
+                            <a href="tel:+2349168686728" class="btn btn-primary py-3 px-4 me-2">
                                 <i class="fa fa-phone-alt me-2"></i>Make A Call
                             </a>
                             <a href="/contact" class="btn btn-dark py-3 px-4"><i class="fa fa-calendar-alt me-2"></i>Get
